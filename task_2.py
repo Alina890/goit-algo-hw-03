@@ -8,4 +8,5 @@ def get_numbers_ticket(min, max, quantity):
     while len(lottery_numbers) == quantity:
         numbers_tickets = random.randrange(1,1000)
         lottery_numbers.append(numbers_tickets)
-        return (lottery_numbers)
+        continue
+    return (lottery_numbers)

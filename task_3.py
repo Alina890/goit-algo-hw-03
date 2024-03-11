@@ -7,4 +7,6 @@ def normalize_phone(phone_number):
             cleaned_number = '+' + cleaned_number
         else:
             cleaned_number = '+38' + cleaned_number
-    return normalize_phone()
+    return (cleaned_number)
+
+
