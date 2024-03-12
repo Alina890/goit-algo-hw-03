@@ -24,3 +24,4 @@ def get_uncoming_birthdays():
                 congratulation_date_string = birthday_this_year.strftime("%Y,%m,%d")
                 uncoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_string})
                 print (uncoming_birthdays)
+    return get_uncoming_birthdays()
