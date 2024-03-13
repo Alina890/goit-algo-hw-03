@@ -3,9 +3,6 @@ from datetime import datetime
 def get_days_from_today(date):
     try:
         date = datetime.strptime(date, '%Y-%m-%d')
-    except ValueError:
-        print("Введіть дату у форматі РРРР-ММ-ДД:")
-    else:
         current_date = datetime.today()
         date = date.replace(year=current_date.year)
         delta_date =  current_date - date 
@@ -13,5 +10,6 @@ def get_days_from_today(date):
             print(f"{delta_date.days} днів")
         else:
             print(f"{delta_date.days} днів")
-
+    except ValueError:
+        print("Введіть дату у форматі РРРР-ММ-ДД:")
     return int(delta_date.days)

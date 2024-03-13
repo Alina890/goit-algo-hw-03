@@ -9,7 +9,7 @@ users = [
 ]
 
 
-def get_uncoming_birthdays():
+def get_uncoming_birthdays(users):
     days = 7
     current_date = datetime.today().date()
     birthday_days = datetime.strptime(users["birthday"], "%Y.%m.%d").date()
@@ -23,5 +23,4 @@ def get_uncoming_birthdays():
                     birthday_this_year = find_next_weekday(birthday_this_year, 0)
                 congratulation_date_string = birthday_this_year.strftime("%Y,%m,%d")
                 uncoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_string})
-                print (uncoming_birthdays)
-    return get_uncoming_birthdays()
+    return uncoming_birthdays
