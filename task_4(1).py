@@ -23,4 +23,4 @@ def get_uncoming_birthdays(users):
                     birthday_this_year = find_next_weekday(birthday_this_year, 0)
                 congratulation_date_string = birthday_this_year.strftime("%Y,%m,%d")
                 uncoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_string})
-    return uncoming_birthdays
+    return (uncoming_birthdays)
