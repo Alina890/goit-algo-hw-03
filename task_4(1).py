@@ -8,14 +8,31 @@ users = [
     {"name": "Elisabeth", "birthday": "1999.06.05"}
 ]
 
+def find_next_weekday(day,weekday: int):
+    day = datetime.date()
+    weekday = datetime.weekday()
+    days_ahead = weekday - day.weekday()
+    if days_ahead <= 0:
+        days_ahead += 7
+    return day + timedelta(days = days_ahead)
 
-def get_uncoming_birthdays(users):
+def get_prepared_users(users):
+    prepared_users = []
+    for user in users:
+        try:
+            birthday_days = datetime.strptime(users["birthday"], "%Y.%m.%d").date()
+            prepared_users.append({"name": user["name"], "birthday": birthday_days})
+        except ValueError:
+            print(f"Некортектна дата народження для користувача {user["name"]}")
+    return (prepared_users)
+
+def get_uncoming_birthdays(prepared_users):
     days = 7
     current_date = datetime.today().date()
     birthday_days = datetime.strptime(users["birthday"], "%Y.%m.%d").date()
     uncoming_birthdays = []
-    for user in users:
-        birthday_this_year = user["birthday"].replace(year=current_date.year)
+    for user in prepared_users:
+        birthday_this_year = birthday_days.replace(year=current_date.year)
         if birthday_this_year < current_date:
             birthday_this_year = birthday_this_year.replace(year=current_date.year + 1)
             if 0 <= (birthday_this_year - current_date).days <= days:
@@ -23,4 +40,6 @@ def get_uncoming_birthdays(users):
                     birthday_this_year = find_next_weekday(birthday_this_year, 0)
                 congratulation_date_string = birthday_this_year.strftime("%Y,%m,%d")
                 uncoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_string})
-    return (uncoming_birthdays)
+    return (uncoming_birthdays) 
+
+print (get_uncoming_birthdays(users))
