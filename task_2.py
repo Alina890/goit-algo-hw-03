@@ -1,14 +1,12 @@
 import random
 
 def get_numbers_ticket(min, max, quantity):
+    if not (1 <= min <= max <= 1000 or quantity < 1):
+        return []
     lottery_numbers = set()
-    if min >= 1 and max <=1000:
-        while len(lottery_numbers) <= quantity:
-            lottery_numbers.add(random.randint(min,max))
-        return list(lottery_numbers)
-    else:
-            lottery_numbers = []
-    
+    while len(lottery_numbers) < quantity:
+        lottery_numbers.add(random.randint(min,max))
+    return list(lottery_numbers)
 
 
 min = 1
