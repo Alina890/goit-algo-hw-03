@@ -13,6 +13,7 @@ def get_days_from_today(date):
     except ValueError:
         print("Введіть дату у форматі РРРР-ММ-ДД:")
         return 
+    return int(delta_date.days)
     
 date = input("Take date:")
 print(get_days_from_today(date))
