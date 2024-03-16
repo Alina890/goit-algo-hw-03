@@ -1,19 +1,16 @@
 import random
 
-
 def get_numbers_ticket(min, max, quantity):
     lottery_numbers = []
-    for number in lottery_numbers: 
-        numbers_tickets = random.randrange(min,max)
-        try:
-            if len(lottery_numbers) <= quantity and number >= min and number <= max:
-                lottery_numbers.append(numbers_tickets)
-                continue
-            else:
-                lottery_numbers = []
-        except:
-            print ("Спробуйте ще")
+    while len(lottery_numbers) <= quantity:
+        if min >= 1 and max <= 1000:
+            numbers_tickets = random.randrange(min,max)
+            lottery_numbers.append(numbers_tickets)
+            continue
+        else:
+            lottery_numbers = []
     return (lottery_numbers)
+
 
 min = 1
 max = 1000
